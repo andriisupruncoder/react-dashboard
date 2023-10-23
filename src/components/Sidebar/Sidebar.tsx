@@ -31,16 +31,17 @@ const Sidebar = () => {
           <nav className={styles.sidebarNav}>
             <ul>
               {sidebarNavLinks.map((sidebarNavLink) => (
-                <li className={styles.sidebarNavItem}>
+                <li className={styles.sidebarNavItem} key={sidebarNavLink}>
                   <Link
                     className={
                       location.pathname === `/${sidebarNavLink}`
-                        ? styles.sidebarLinkActive
-                        : styles.sidebarLink
+                        ? styles.sidebarNavLinkActive
+                        : styles.sidebarNavLink
                     }
                     to={`/${sidebarNavLink}`}
                   >
-                    {sidebarNavLink}
+                    {sidebarNavLink.charAt(0).toUpperCase() +
+                      sidebarNavLink.slice(1)}
                   </Link>
                 </li>
               ))}
